@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, TextInput, Image} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import {Ionicons} from '@expo/vector-icons';
+// import ArrayScreen from '../arrays';
+const productList=[{"id":"0", "price":"GHC221", "orders":"211", "image":require('../pictures/bag1.jpeg')}, {"id":"1", "price":"GHC221", "orders":"211", "image":require('../pictures/blouse1.jpeg')},
+{"id":"2", "price":"GHC221", "orders":"211", "image":require('../pictures/curl1.jpeg')}, {"id":"3", "price":"GHC221", "orders":"211", "image":require('../pictures/dress1.jpeg')}, 
+{"id":"4", "price":"GHC221", "orders":"211", "image":require('../pictures/ear1.jpeg')}, {"id":"5", "price":"GHC221", "orders":"211", "image":require('../pictures/found1.jpeg')} ]
+
+const dealList=[{"id":"0", "price":"GHC221", "orders":"211", "image":require('../pictures/heel4.jpeg')}, {"id":"1", "price":"GHC221", "orders":"211", "image":require('../pictures/jewel1.jpeg')},
+{"id":"2", "price":"GHC221", "orders":"211", "image":require('../pictures/makeup3.jpeg')}, {"id":"3", "price":"GHC221", "orders":"211", "image":require('../pictures/ring2.jpeg')}, 
+{"id":"4", "price":"GHC221", "orders":"211", "image":require('../pictures/roller2.jpeg')}, {"id":"5", "price":"GHC221", "orders":"211", "image":require('../pictures/shoe3.jpeg')},
+{"id":"6", "price":"GHC221", "orders":"211", "image":require('../pictures/slipper1.jpeg')}, {"id":"7", "price":"GHC221", "orders":"211", "image":require('../pictures/hair1.jpeg')},
+ {"id":"8", "price":"GHC221", "orders":"211", "image":require('../pictures/heel5.jpeg')}, {"id":"9", "price":"GHC221", "orders":"211", "image":require('../pictures/blouse4.jpeg')},
+ {"id":"10", "price":"GHC221", "orders":"211", "image":require('../pictures/bag3.jpeg')}, {"id":"11", "price":"GHC221", "orders":"211", "image":require('../pictures/hair2.jpeg')}]
 
 const HomeScreen =()=>{
+  const [products, setProducts]=useState(productList);
+  const [totalDeals, settotalDeal]=useState(dealList);
     return(
         <View style={{flex:1}}>
                <ScrollView>
@@ -89,113 +102,128 @@ const HomeScreen =()=>{
                 <Text style={{fontSize:25, fontWeight:"bold"}}>Flash Sales</Text>
             </View>
             <ScrollView horizontal={true}>
-            <View style={{paddingTop:10, paddingLeft:5, flexDirection:"row"}}>
-                <Image source={require('../pictures/found2.jpeg')} style={{width:120, height:120, borderRadius:5}}/>
-                <Image source={require('../pictures/heel2.jpeg')} style={{width:120, height:120, borderRadius:5, marginLeft:10}}/>
-                <Image source={require('../pictures/shoe3.jpeg')} style={{width:120, height:120, borderRadius:5, marginLeft:10, resizeMode:"contain"}}/>
-                <Image source={require('../pictures/blouse2.jpeg')} style={{width:120, height:120, borderRadius:5, marginLeft:10}}/>
-                <Image source={require('../pictures/jewel1.jpeg')} style={{width:120, height:120, borderRadius:5, marginLeft:10}}/>
-                {/* <Image source={require('../pictures/cold4.jpeg')} style={{width:120, height:120, borderRadius:5, marginLeft:10}}/> */}
-            </View>
+              {products.map(product=>{
+                return(
+                  <View style={{paddingTop:10, paddingLeft:5, flexDirection:"row"}}>
+                  <Image source={ product.image} style={{width:120, height:120, borderRadius:5}}/>
+              </View>
+                )
+              })}
+            
             </ScrollView>
-
+{/* ###################################################################################################33 */}
             <View style={{paddingTop:20}}>
                 <Text style={{fontSize:20, fontWeight:"bold"}}>KiKUU Picks</Text>
             </View>
             <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
                 <Image source={require('../pictures/curl1.jpeg')} style={{width:"60%", height:130}}/>
                 <Image source={require('../pictures/heel4.jpeg')} style={{width:"68%", height:60, marginLeft:10}}/>
-                
-               
             </View>
-
             <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
-                <Image source={require('../pictures/heel3.jpeg')} style={{width:"60%", height:130}}/>
-                <Image source={require('../pictures/cold4.jpeg')} style={{width:"48%", height:60, marginLeft:10}}/>
+                <Image source={require('../pictures/heel3.jpeg')} style={{width:"60%", height:130, resizeMode:"contain"}}/>
+                <Image source={require('../pictures/ear2.jpeg')} style={{width:"48%", height:60, marginLeft:10}}/>
             </View>
 {/* ######################################################################################### */}
             <View>
-                <Text style={{fontWeight:"bold", fontSize:20, paddingTop:20}}>Today's Deal</Text>
+                <Text style={{fontWeight:"bold", fontSize:25, paddingTop:20}}>Today's Deal</Text>
             </View>
-            <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
-            {/* <View style={{backgroundColor:"red", width:"50%", height:190}}>
-            <Image source={require('../pictures/shoe3.jpeg')} style={{width:"70%", height:150, resizeMode:"center"}}/>
-            <Text style={{fontSize:20, fontWeight:"bold"}}>GHC25.00</Text>
-            </View> */}
+            <View style={{paddingTop:10, flexDirection:"row",flexWrap:"wrap"}}> 
+            {totalDeals.map(totalDeal=>{
+              return(
+               
+                <View style={{width:"48%", height:270, paddingLeft:5, paddingRight:5,  borderWidth:1, borderColor:"white", marginTop:10, backgroundColor:"white", paddingRight:5, marginLeft:5}}>
+                <Image source={totalDeal.image} style={{width:"100%", height:150, resizeMode:"strech", borderRadius:30, borderWidth:1, borderColor:"white"}}/>
+                <Text style={{fontSize:20,  paddingLeft:10, paddingTop:10, fontSize:25}}>GHC25.00</Text>
+                <Text style={{fontSize:20, fontWeight:"bold", paddingLeft:10, paddingTop:2}}>211 orders</Text>
+                <View style={{flexDirection:"row", paddingLeft:10}}> 
+                <Ionicons 
+                 name="ios-star"
+                 size={14}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={14}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={14}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={14}
+                 color="#05386B"/>
+                 <Ionicons style={{paddingLeft:5}}
+                 name="ios-star-half"
+                 size={14}
+                 color="#05386B"/>
+                 </View>
+                    <TouchableOpacity style={{height:20, borderWidth:1, borderRadius:30, width:90, marginLeft:10, marginTop:2, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <Text>Free Shipping</Text>
+                    </TouchableOpacity>
+
+                    {/* <View >
+                  <Image source={require('../pictures/bag1.jpeg')} style={{width:50, height:50}}/>
+                  </View> */}
+
+                      {/* <View style={{ width:"100%",height:270}}>
+                    <Image source={require('../pictures/bag1.jpeg')} style={{width:"80%", height:150, marginLeft:20}}/>
+                    <Text style={{fontSize:20,  paddingLeft:25, paddingTop:10, fontSize:25}}>GHC25.00</Text>
+                <Text style={{fontSize:20, fontWeight:"bold", paddingLeft:25, paddingTop:2}}>211 orders</Text>
+                <View style={{flexDirection:"row", paddingLeft:25}}> 
+                <Ionicons 
+                 name="ios-star"
+                 size={24}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={24}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={24}
+                 color="#05386B"/>
+                   <Ionicons style={{paddingLeft:5}}
+                 name="ios-star"
+                 size={24}
+                 color="#05386B"/>
+                 <Ionicons style={{paddingLeft:5}}
+                 name="ios-star-half"
+                 size={24}
+                 color="#05386B"/>
+                 </View>
+                    <TouchableOpacity style={{height:20, borderWidth:1, borderRadius:30, width:90, marginLeft:25, marginTop:2, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <Text>Free Shipping</Text>
+                    </TouchableOpacity>
+                    </View> */}
+
+                </View>
+
               
-                <Image source={require('../pictures/roller1.jpeg')} style={{width:"68%", height:60, marginLeft:10}}/>
-                
+
+
+
+
+
+
+
+
                
-            </View>
 
-            <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
-                <Image source={require('../pictures/stra3.jpeg')} style={{width:"60%", height:130}}/>
-                <Image source={require('../pictures/cold4.jpeg')} style={{width:"48%", height:60, marginLeft:10}}/>
-            </View>
-            <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
-                <Image source={require('../pictures/curl1.jpeg')} style={{width:"60%", height:130}}/>
-                <Image source={require('../pictures/heel4.jpeg')} style={{width:"68%", height:60, marginLeft:10}}/>
-                
+
+             
+              );
+            })}
+
+                   </View>
+                   
                
-            </View>
-
-            <View style={{paddingTop:10, flexDirection:"row", paddingRight:10}}> 
-                <Image source={require('../pictures/heel3.jpeg')} style={{width:"60%", height:130}}/>
-                <Image source={require('../pictures/cold4.jpeg')} style={{width:"48%", height:60, marginLeft:10}}/>
-            </View>
-            {/* <View>
-            <Image source={require('../pictures/cold4.jpeg')} style={{width:"55%", height:"55%"}}/>
+                </View>
             
-            </View> */}
-
-
-           
             
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </View>
-
-
-
-
+         
 
 
             </ScrollView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </View>
     );
 }

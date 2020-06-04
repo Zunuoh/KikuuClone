@@ -3,7 +3,7 @@ import {View, Text, TextInput, Image} from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
-const CategoriesScreen =({navigation})=>{
+const ClothingScreen =({navigation})=>{
     return(
         <View style={{flex:1}}>
             <View style={{paddingTop:60, height:110, borderWidth:2, borderBottomColor:"#eae8e8"}}>
@@ -27,7 +27,7 @@ const CategoriesScreen =({navigation})=>{
                  <Text style={{padding:20}}>Clothing</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{backgroundColor:"#eae8e8", height:52, marginTop:5}} onPress={()=>{navigation.navigate('Clothing')}}>
+                <TouchableOpacity style={{backgroundColor:"#eae8e8", height:52, marginTop:5}}>
                  <Text style={{padding:20}}>Shoes</Text>
                 </TouchableOpacity>
 
@@ -76,61 +76,64 @@ const CategoriesScreen =({navigation})=>{
 
               <View style={{padding:15, flexDirection:"row"}}>
                   <View>
-                  <Image source={require('../pictures/makeup1.jpeg')} style={{width:70, height:70}}/>
-                  <Text style={{paddingLeft:10}}>hi</Text>
+                  <Image source={require('../pictures/dress3.jpeg')} style={{width:70, height:70}}/>
+                  <Text style={{paddingLeft:10}}>Dresses</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/lap1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../pictures/blouse3.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Blouses</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/makeup3.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../newPages/jean1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Jeans</Text>
                   </View>
               </View>
 
               <View style={{padding:15, flexDirection:"row"}}>
               <View>
-                  <Image source={require('../pictures/kid1.jpeg')} style={{width:70, height:70}}/>
-                  <Text style={{paddingLeft:10}}>hi</Text>
+                  <Image source={require('../newPages/shorts1.jpeg')} style={{width:70, height:70}}/>
+                  <Text style={{paddingLeft:10}}>Shorts</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/curl2.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../newPages/skirt1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Skirt</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/kid2.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../newPages/jump1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Jumpsuit</Text>
+                  </View>
+              </View>
+                
+                <View>
+                    <Text style={{fontSize:20, fontWeight:"bold"}}>Men's Clothing</Text>
+                </View>
+              <View style={{padding:15, flexDirection:"row"}}>
+                  <View>
+                  <Image source={require('../newPages/shirt1.jpeg')} style={{width:70, height:70}}/>
+                  <Text style={{paddingLeft:10}}>Shirt</Text>
+                  </View>
+                  <View>
+                  <Image source={require('../newPages/menj1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Jeans</Text>
+                  </View>
+                  <View>
+                  <Image source={require('../newPages/suit1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Suit</Text>
                   </View>
               </View>
 
               <View style={{padding:15, flexDirection:"row"}}>
                   <View>
-                  <Image source={require('../pictures/heel4.jpeg')} style={{width:70, height:70}}/>
-                  <Text style={{paddingLeft:10}}>hi</Text>
+                  <Image source={require('../newPages/sweat1.jpeg')} style={{width:70, height:70}}/>
+                  <Text style={{paddingLeft:10}}>Hoodies</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/found2.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../newPages/shirt5.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>T-shirts</Text>
                   </View>
                   <View>
-                  <Image source={require('../pictures/pen3.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
-                  </View>
-              </View>
-
-              <View style={{padding:15, flexDirection:"row"}}>
-                  <View>
-                  <Image source={require('../pictures/stra1.jpeg')} style={{width:70, height:70}}/>
-                  <Text style={{paddingLeft:10}}>hi</Text>
-                  </View>
-                  <View>
-                  <Image source={require('../pictures/makeup2.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
-                  </View>
-                  <View>
-                  <Image source={require('../pictures/stra3.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
-                  <Text style={{paddingLeft:30}}>hi</Text>
+                  <Image source={require('../newPages/menshort1.jpeg')} style={{width:70, height:70, marginLeft:20}}/>
+                  <Text style={{paddingLeft:30}}>Shorts</Text>
                   </View>
               </View>
                
@@ -144,4 +147,4 @@ const CategoriesScreen =({navigation})=>{
     );
 }
 
-export default CategoriesScreen;
+export default ClothingScreen;
