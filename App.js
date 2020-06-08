@@ -17,6 +17,7 @@ import ClothingScreen from './src/newPages/clothingScreen';
 import ShoeScreen from './src/newPages/shoeScreen';
 import BagScreen from './src/newPages/bagScreen';
 import DetailsScreen from './src/screens/details';
+import SettingsScreen from './src/newPages/settingsScreen';
 
 
 
@@ -30,8 +31,9 @@ export default function App() {
     <Tab.Screen name="Outlet" component={OutletScreen}/>
     <Tab.Screen name="Cart" component={CartScreen}/>
     <Tab.Screen name="My Kikuu" component={MykikuuScreen}/> 
-    <Tab.Screen name="Clothing" component={ClothingScreen}/>
+    {/* <Tab.Screen name="Clothing" component={ClothingScreen}/> */}
     <Tab.Screen name="Details" component={DetailsScreen}/>
+    <Tab.Screen name="Settings" component={SettingsScreen}/>
     {/* <Tab.Screen name="Shoe" component={ShoeScreen}/> */}
     {/* <Tab.Screen name="Bag" component={BagScreen}/> */}
   </Tab.Navigator>
